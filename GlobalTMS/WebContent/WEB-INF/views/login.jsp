@@ -108,7 +108,5 @@ ${mymsg}
 </body>
 
 
-<footer class="container-fluid text-center">
-  <p> Copyright@ represent ISO</p>
-</footer>
+
 </html>
