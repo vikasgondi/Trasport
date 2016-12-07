@@ -62,7 +62,7 @@ ${mymsg}
 						
 						<form:password path="password" class="form-control" placeholder="Password"/><br/>
 						<form:errors
-				path="password" /></td></tr>
+				path="password" />
 						<input id="login-button" type="submit" class="btn btn-lg btn-success btn-block" value="Login" />
 					</form:form>
 					</fieldset>

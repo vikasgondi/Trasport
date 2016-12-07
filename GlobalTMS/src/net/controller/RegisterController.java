@@ -33,7 +33,7 @@ public class RegisterController {
 	
 		if (result.hasErrors()) {
 			 System.out.println("Error");
-			    return new ModelAndView("addCustomer");
+			    return new ModelAndView("RegCustomer");
 			    }
 		
 		try
@@ -55,7 +55,7 @@ public class RegisterController {
 		
 			 
 			
-			 return new ModelAndView("addCustomer","mymsg",msg);
+			 return new ModelAndView("RegCustomer","mymsg",msg);
 		}
 	
 	}
@@ -66,7 +66,7 @@ public class RegisterController {
 			BindingResult result) {
 		
 		System.out.println("five");
-		return new ModelAndView("addCustomer");
+		return new ModelAndView("RegCustomer");
 	}
 	@RequestMapping(value="listcustomer", method=RequestMethod.GET)
 	public ModelAndView listCustomer(@ModelAttribute("customer") Customer customer, BindingResult result)

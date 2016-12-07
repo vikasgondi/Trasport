@@ -6,11 +6,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}</style>
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="CustomerHome.jsp"/> 
-
+<%-- <jsp:include page="CustomerHome.jsp"/>  --%>
+		<nav class="navbar navbar-inverse">
+ 			 <div class="container-fluid">
+   				 <div class="navbar-header">
+      						<a class="navbar-brand" href="/GlobalTMS/booking">Home</a>
+      						<a class="navbar-brand" href="/GlobalTMS/booking/mybook">My Bookings</a>
+   			 </div>
+       		 <ul class="nav navbar-nav navbar-right">
+     			 <li><a href="/GlobalTMS/login.logout"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+         	 </ul>
+ 			 </div>
+		</nav>
  <c:if test="${!empty bookings1}"> 
  <table border="1" cellpadding="10" align="left" style="border-color: blue;left; border-style: groove;text-decoration: blink;" >
 		<tr>

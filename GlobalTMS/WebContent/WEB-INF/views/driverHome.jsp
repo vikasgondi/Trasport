@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="adminhome.jsp"/>
+<jsp:include page="AdminHome.jsp"/>
 <a href="/GlobalTMS/admin/adddriver"><h3>Add Driver</h3></a>
 <a href="/GlobalTMS/admin/listdriver"><h3>Driver List</h3></a>
 

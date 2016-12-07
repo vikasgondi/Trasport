@@ -45,7 +45,7 @@ public class AdminController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView loginadmin(@ModelAttribute("admin") Admin admin, BindingResult result)
 	{
-		return new ModelAndView("adminlogin");
+		return new ModelAndView("AdminLogin");
 	}
 	@RequestMapping(value="loginadmin", method=RequestMethod.POST)
 	public ModelAndView verifyadmin(@ModelAttribute("admin") Admin admin, BindingResult result)
@@ -53,25 +53,25 @@ public class AdminController {
 		boolean userExists = adminService.loginadmin(admin.getU_name(), admin.getPassword());
 		if (userExists)
 		{
-			return new ModelAndView("adminhome");
+			return new ModelAndView("AdminHome");
 		}
 		else
 		{
 			String msg="Sorry User name or password invalid";
-			return new ModelAndView("adminlogin","mymsg",msg);
+			return new ModelAndView("AdminLogin","mymsg",msg);
 		}
 		
 	}
 	@RequestMapping(value="home", method=RequestMethod.GET)
 	public ModelAndView rehome(@ModelAttribute("admin") Admin admin, BindingResult result)
 	{
-		return new ModelAndView("adminhome");
+		return new ModelAndView("AdminHome");
 	}
 	
 	@RequestMapping(value="driver/add", method=RequestMethod.GET)
 	public ModelAndView registerDriver(@ModelAttribute("driver") Driver driver, BindingResult result)
 	{
-		return new ModelAndView("addDriver");
+		return new ModelAndView("AdminAddDriver");
 	}
 	@RequestMapping(value="driver/list", method=RequestMethod.GET)
 	public ModelAndView listDriver(@ModelAttribute("driver") Driver driver, BindingResult result)
@@ -79,25 +79,25 @@ public class AdminController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("drivers", adminService.listDrivers());
 		
-		return new ModelAndView("driversaved", model);
+		return new ModelAndView("AdminDriverSaved", model);
 	}
 	@RequestMapping(value="driver/add", method=RequestMethod.POST)
 	public ModelAndView saveDriver(@Valid @ModelAttribute("driver") Driver driver, BindingResult result)
 	{
 		if (result.hasErrors()) {
 			 System.out.println("Error");
-			    return new ModelAndView("addDriver");
+			    return new ModelAndView("AdminAddDriver");
 			    }
 		try{
 			
 		
 		adminService.regDriver(driver);
-		return new ModelAndView("driversaved");
+		return new ModelAndView("AdminDriverSaved");
 		}
 		catch(Exception e)
 		{
 			String msg="Driver already exist with e mail or Vehicle No";
-			return new ModelAndView("addDriver","mymsg",msg);
+			return new ModelAndView("AdminAddDriver","mymsg",msg);
 		}
 	}
 	
@@ -105,7 +105,7 @@ public class AdminController {
 	public String logout(HttpSession session)
 	{
 		session.invalidate();
-		return ("adminlogin.jsp");
+		return ("AdminLogin.jsp");
 	}
 	
 	@RequestMapping(value="booking/{id}", method=RequestMethod.GET)
@@ -145,7 +145,7 @@ public class AdminController {
 			if((book!=null)&(book.size()>0))
 			{
 		model.put("bookings", book);
-		return new ModelAndView("ABbid",model);
+		return new ModelAndView("AdminBookings",model);
 			}
 			
 			String msg="Invalid Data";
@@ -158,7 +158,7 @@ public class AdminController {
 			if((book!=null)&(book.size()>0))
 			{
 		model.put("bookings1", book);
-		return new ModelAndView("ABbid",model);
+		return new ModelAndView("AdminBookings",model);
 			}
 			
 			String msg="Invalid Data";
@@ -170,7 +170,7 @@ public class AdminController {
 			if((book!=null)&(book.size()>0))
 			{
 		model.put("bookings1", book);
-		return new ModelAndView("ABbid",model);
+		return new ModelAndView("AdminBookings",model);
 			}
 			
 			String msg="Invalid Data";
@@ -194,7 +194,7 @@ public class AdminController {
 		
 		model.put("bookingss",  bookingService.listBookings());
 		
-		return new ModelAndView("ABbid",model);
+		return new ModelAndView("AdminBookings",model);
 	}
 	
 	@RequestMapping(value="sparedriver/add",method=RequestMethod.GET)
@@ -209,20 +209,20 @@ public class AdminController {
 	{
 		if(result.hasErrors())
 		{
-			return new ModelAndView("addSpareDriver");
+			return new ModelAndView("AdminAddSpareD");
 		}
 		try
 		{
 			Map<String, Object> model= new HashMap<String, Object>();
 			model.put("drivers", adminService.regSPareDriver(spareD));
 			
-			return new ModelAndView("spareSaved",model);
+			return new ModelAndView("AdminSpareDSaved",model);
 			
 		}
 		catch(Exception e)
 		{
 			String msg="Driver Already exists with same Id";
-			return new ModelAndView("addSpareDriver","mymsg",msg);
+			return new ModelAndView("AdminAddSpareD","mymsg",msg);
 		}
 	}
 
@@ -236,14 +236,14 @@ public class AdminController {
 	{
 		Map<String, Object> model=new HashMap<String, Object>();
 		model.put("drivers", adminService.listSpares());
-		return new ModelAndView("spareDriverDetail",model);
+		return new ModelAndView("AdminSpareDDetail",model);
 	}
 	
 	
 	@RequestMapping(value="spare/allot")
 	public ModelAndView allotDriver(@ModelAttribute("spareD") SpareDriver spareD,@ModelAttribute("booking") Booking booking,BindingResult result)
 	{
-		return new ModelAndView("allotdriver");
+		return new ModelAndView("AdminAllotDriver");
 	}
 	
 	
@@ -254,12 +254,12 @@ public class AdminController {
 			/*adminService.allotSpares(booking);*/
 			Map<String, Object> model= new HashMap<String, Object>();
 			model.put("bookings",adminService.allotSpares(booking));
-			return new ModelAndView("allotsparedone",model);
+			return new ModelAndView("AdminAllotSpareDone",model);
 		}
 		catch(Exception e)
 		{
 			String msg="Booking id or Driver id is not valid";
-		return new ModelAndView("allotdriver","mymsg",msg);
+		return new ModelAndView("AdminAllotDriver","mymsg",msg);
 		}
 	}
 	/*
@@ -275,7 +275,7 @@ public class AdminController {
 	
 		ModelAndView model= new ModelAndView();
 		model.addObject("driver", adminService.getDriver(id));
-		model.setViewName("updateDriver");
+		model.setViewName("AdminUpdateDriver");
  		return model;
 	}
 	
@@ -287,7 +287,7 @@ public class AdminController {
 		ModelAndView model= new ModelAndView();
 		model.addObject("drivers", adminService.listDrivers());
 		model.addObject("mymsg", "Updated Successfully");
-		model.setViewName("driversaved");
+		model.setViewName("AdminDriverSaved");
 		return model;
 	}
 
@@ -307,8 +307,8 @@ public class AdminController {
 		}
 		
 		model.addObject("drivers",adminService.listDrivers());
-		model.setViewName("driversaved");
-		
+		model.setViewName("AdminDriverSaved");
+
 		return model;
 	}
 	
@@ -318,7 +318,7 @@ public class AdminController {
 	{
 		ModelAndView model= new ModelAndView();
 		model.addObject("spareD", adminService.getSpareDriver(id));
-		model.setViewName("addSpareDriver");
+		model.setViewName("AdminAddSpareD");
 		return model;
 	}
 	
@@ -329,7 +329,7 @@ public class AdminController {
 		adminService.updateSpareDriver(spareD);
 		ModelAndView model= new ModelAndView();
 		model.addObject("drivers", adminService.listSpares());
-		model.setViewName("spareDriverDetail");
+		model.setViewName("AdminSpareDDetail");
 		model.addObject("mymsg", "Updated Successfully");
 		return model;
 	}
@@ -350,7 +350,7 @@ public class AdminController {
 	
 		
 		model.addObject("drivers", adminService.listSpares());
-		model.setViewName("spareDriverDetail");
+		model.setViewName("AdminSpareDDetail");
 	
 		return model;
 	}
@@ -360,6 +360,6 @@ public class AdminController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		model.put("customers",  customerService.listCustomers());
-		return new ModelAndView("customerdetail",model);
+		return new ModelAndView("AdminCustDetail",model);
 	}
 }

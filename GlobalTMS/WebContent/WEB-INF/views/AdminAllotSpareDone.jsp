@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="adminhome.jsp"/><br>
+<jsp:include page="AdminHome.jsp"/><br>
 <h3>Spare Driver allotted to customer</h3>
 <div>
 		<c:if test="${!empty bookings}">

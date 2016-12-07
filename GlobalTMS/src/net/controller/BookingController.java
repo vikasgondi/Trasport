@@ -68,25 +68,17 @@ public ModelAndView saveBooking(@Valid @ModelAttribute("booking") Booking bookin
 		System.out.println("name"+cust.getName());
 		booking.setCustomer(cust);
 		bookingService.ebook(booking);
-		
 		Map<String, Object> model = new HashMap<String, Object>();
-		
 		model.put("bookings",  bookingService.bookdetail(booking.getB_id()));
+		System.out.println("Done");
 				
-			System.out.println("Done");
-			
-			
-			
-			
-	
-		
-		return new ModelAndView("Bdone",model);
+		return new ModelAndView("CustEstimateBook",model);
 	}
 	catch(Exception e)
 	{
 		System.out.println("catch");
 		
-		return new ModelAndView("addbooking");
+		return new ModelAndView("CustomerHome");
 	}
 	
 	
@@ -107,7 +99,7 @@ public ModelAndView confirmBook(@PathVariable("id") long id,@ModelAttribute("boo
 	model.put("bookings",bookingService.allotd(booking));
 		
 	System.out.println("done");
-	return new ModelAndView("confirm",model);
+	return new ModelAndView("CustBookDone",model);
 }
 
 @RequestMapping(value="mybook",method=RequestMethod.GET)
@@ -118,7 +110,7 @@ public ModelAndView mybook(@ModelAttribute("booking") Booking booking,HttpSessio
 	System.out.println("Customer Name="+cust.getEmail());
 	Map<String, Object> model = new HashMap<String, Object>();
 	model.put("bookings1", bookingService.custDetails(cust));
-	return new ModelAndView("custBookingD",model);
+	return new ModelAndView("CustBookings",model);
 }
 }
  

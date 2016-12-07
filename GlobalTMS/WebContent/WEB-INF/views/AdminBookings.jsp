@@ -33,56 +33,47 @@ th {
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Admin</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/GlobalTMS/admin/home">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/driver">Driver<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/GlobalTMS/admin/driver/add">Add Driver</a></li>
-          <li><a href="/GlobalTMS/admin/driver/list">Driver List</a></li>
-        </ul>
-      </li>
-      <li class="active"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/driver">Booking Detail<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/GlobalTMS/admin/booking/list">Booking List</a></li>
-          <li><a href="/GlobalTMS/admin/booking/${1}">Booking by Booking Id</a></li>
-          <li><a href="/GlobalTMS/admin/booking/${2}">Booking by Customer</a></li>
-          <li><a href="/GlobalTMS/admin/booking/${3}">Booking by Driver</a></li>
+	<nav class="navbar navbar-inverse">
+  		<div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Admin</a>
+			    </div>
+    			<ul class="nav navbar-nav">
+      				<li><a href="/GlobalTMS/admin/home">Home</a></li>
+      				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/driver">Driver<span class="caret"></span></a>
+       			 <ul class="dropdown-menu">
+         			 <li><a href="/GlobalTMS/admin/driver/add">Add Driver</a></li>
+          			<li><a href="/GlobalTMS/admin/driver/list">Driver List</a></li>
+       			 </ul>
+     				 </li>
+     				 <li class="active"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/driver">Booking Detail<span class="caret"></span></a>
+       			 <ul class="dropdown-menu">
+			          <li><a href="/GlobalTMS/admin/booking/list">Booking List</a></li>
+			          <li><a href="/GlobalTMS/admin/booking/${1}">Booking by Booking Id</a></li>
+			          <li><a href="/GlobalTMS/admin/booking/${2}">Booking by Customer</a></li>
+			          <li><a href="/GlobalTMS/admin/booking/${3}">Booking by Driver</a></li>
           
-        </ul>
-      </li>
+       			 </ul>
+     			 </li>
       <!-- <li><a href="/GlobalTMS/admin/Bdetails">Booking Detail</a></li> -->
       
      
- <li><a href="/GlobalTMS/admin/listcustomer">Customer Detail</a></li>
-      
-     
-      
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/spare">Spare Vehicle<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/GlobalTMS/admin/sparedriver/add">Add Vehicle</a></li>
-          <li><a href="/GlobalTMS/admin/spare/list">Vehicle List</a></li>
-          <li><a href="/GlobalTMS/admin/spare/allot">Allot Spare Vehicle</a></li>
-        </ul>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/GlobalTMS/admin.logout"><span class="glyphicon glyphicon-user"></span> Log out</a></li>
-          </ul>
-  </div>
-</nav>
-
-  <h2>Booking Details</h2>
-  
-
-
-
-<c:if test="${!empty bookings}">
-<table>	
-
+					<li><a href="/GlobalTMS/admin/listcustomer">Customer Detail</a></li>      
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/GlobalTMS/admin/spare">Spare Vehicle<span class="caret"></span></a>
+      				  <ul class="dropdown-menu">
+				          <li><a href="/GlobalTMS/admin/sparedriver/add">Add Vehicle</a></li>
+				          <li><a href="/GlobalTMS/admin/spare/list">Vehicle List</a></li>
+				          <li><a href="/GlobalTMS/admin/spare/allot">Allot Spare Vehicle</a></li>
+       				 </ul>
+    			</ul>
+   				 <ul class="nav navbar-nav navbar-right">
+     					 <li><a href="/GlobalTMS/admin.logout"><span class="glyphicon glyphicon-user"></span> Log out</a></li>
+         		 </ul>
+ 		 </div>
+	</nav>
+	  <h2>Booking Details</h2>
+	<c:if test="${!empty bookings}">
+	<table>	
 		 <c:forEach items="${bookings}" var="booking"> 
 			<tr>
 				<td>Book ID</td>
@@ -119,17 +110,12 @@ th {
 			<tr>
 				<td>Driver Name</td>
 				<td><c:out value="${booking.driver.d_name}"/></td>
-			</tr>
-				
-			
-			
+			</tr>			
 		</c:forEach> 
 	</table>
-
-</c:if>
-<c:if test="${!empty bookings1}">
-<table class="table">
-
+	</c:if>
+	<c:if test="${!empty bookings1}">
+	<table class="table">
 		<tr>
 			<th>Book ID</th>
 			<th>Vehicle Type</th>
@@ -148,11 +134,8 @@ th {
 			<th>Start Date</th>
 			<th>End Date</th>
 		</tr>
-
 		 <c:forEach items="${bookings1}" var="booking"> 
-
 			<tr>
-			
 				<td><c:out value="${booking.b_id}"/></td>
 				<td><c:out value="${booking.v_type}"/></td>
 				<td><c:out value="${booking.s_date}"/></td>
@@ -170,15 +153,12 @@ th {
 				<td><c:out value="${booking.driver.s_date}"></c:out></td>
 				<td><c:out value="${booking.driver.e_date}"></c:out></td>
 			</tr>
-
 		</c:forEach> 
 	</table>
-
-</c:if>
-<c:if test="${!empty bookingss}">
+	</c:if>
+	<c:if test="${!empty bookingss}">
 	<table>
-
-			<tr>
+		<tr>
 			<th>Book ID</th>
 			<th>Vehicle Type</th>
 			<th>Start Date</th>
@@ -187,10 +167,8 @@ th {
 			<th>Driver Name</th>
 			<th>Spare Driver</th>
 		</tr>
-	
 		<c:forEach items="${bookingss}" var="booking">
-	
-			<tr>
+		<tr>
 				<td><c:out value="${booking.b_id}"/></td>
 				<td><c:out value="${booking.v_type}"/></td>
 				<td><c:out value="${booking.s_date}"/></td>
@@ -198,11 +176,10 @@ th {
 				<td><c:out value="${booking.e_amount}"></c:out></td>
 				<td><c:out value="${booking.driver.d_name}"></c:out></td>
 				<td><c:out value="${booking.spareD.name}"></c:out></td>
-			</tr>
-		
+		</tr>
 		</c:forEach>
 	</table>
-</c:if>
+	</c:if>
 
 </body>
 </html>
