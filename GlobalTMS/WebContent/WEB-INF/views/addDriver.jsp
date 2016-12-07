@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+  </script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -82,10 +91,10 @@ ${mymsg}
 	<form:option value="Tempo Traveller">Tempo Traveller</form:option>
 	</form:select></td></tr>
 	<tr><td><form:label path="s_date">Starting date </form:label></td>
-	<td><form:input path="s_date" /></td><td><form:errors
+	<td><form:input path="s_date" id="datepicker" /></td><td><form:errors
 				path="s_date" />(mm/dd/yy)</td></tr>
-				<tr><td><form:label path="e_date">End date </form:label></td>
-	<td><form:input path="e_date" /></td><td><form:errors
+				<tr><td><form:label path="e_date" >End date </form:label></td>
+	<td><form:input path="e_date" id="datepicker" /></td><td><form:errors
 				path="e_date" />(mm/dd/yy)</td></tr>
 
 	

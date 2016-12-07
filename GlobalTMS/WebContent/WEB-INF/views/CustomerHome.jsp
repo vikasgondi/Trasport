@@ -7,6 +7,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- <link rel="stylesheet" type="text/css" href="css/customerlogin1.css"/> -->
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+  $(document).ready(function() {
+	    $("#datepicker1").datepicker();
+	  });
+  </script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -36,11 +49,11 @@
 				path="v_type" /></td></tr> --%>
 	
 <tr><td><form:label path="s_date">Starting date </form:label></td>
-	<td><form:input path="s_date" id="datepicker" /></td><td><form:errors
+	<td><form:input path="s_date" id="datepicker"/></td><td><form:errors
 				path="s_date" /></td></tr>
 	 
 <tr><td><form:label path="e_date">End Date </form:label></td>
-<td><form:input path="e_date"/> </td><td><form:errors
+<td><form:input path="e_date" id="datepicker1"/> </td><td><form:errors
 				path="e_date" /></td></tr>
 	
 <tr><td><form:label path="p_location">Pick Up Location</form:label></td>
