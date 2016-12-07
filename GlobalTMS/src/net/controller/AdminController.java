@@ -53,7 +53,7 @@ public class AdminController {
 		boolean userExists = adminService.loginadmin(admin.getU_name(), admin.getPassword());
 		if (userExists)
 		{
-			return new ModelAndView("AdminHome");
+			return new ModelAndView("HomeAdmin");
 		}
 		else
 		{
@@ -65,7 +65,7 @@ public class AdminController {
 	@RequestMapping(value="home", method=RequestMethod.GET)
 	public ModelAndView rehome(@ModelAttribute("admin") Admin admin, BindingResult result)
 	{
-		return new ModelAndView("AdminHome");
+		return new ModelAndView("HomeAdmin");
 	}
 	
 	@RequestMapping(value="driver/add", method=RequestMethod.GET)

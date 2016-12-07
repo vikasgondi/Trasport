@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="AdminHome.jsp"/>
+<jsp:include page="HomeAdmin.jsp"/>
 
 <c:if test="${!empty drivers}">
 
