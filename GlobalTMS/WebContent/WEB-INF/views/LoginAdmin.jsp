@@ -26,7 +26,7 @@ ${mymsg}
 <div class="login-page">
   <div class="form">
 		<h2 style="color: black;"> Admin Login Here</h2>
-			<c:url var="saveCustUrl" value="/admin/loginadmin.html" />
+			<c:url var="saveCustUrl" value="/admin/loginadmin" />
 			<form:form modelAttribute="admin" method="POST" action="${saveCustUrl}">
 	
 				<table cellpadding="10" style="font-family: inherit;font-size: medium;">

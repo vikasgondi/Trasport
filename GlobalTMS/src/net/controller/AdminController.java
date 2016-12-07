@@ -45,7 +45,7 @@ public class AdminController {
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView loginadmin(@ModelAttribute("admin") Admin admin, BindingResult result)
 	{
-		return new ModelAndView("AdminLogin");
+		return new ModelAndView("LoginAdmin");
 	}
 	@RequestMapping(value="loginadmin", method=RequestMethod.POST)
 	public ModelAndView verifyadmin(@ModelAttribute("admin") Admin admin, BindingResult result)
